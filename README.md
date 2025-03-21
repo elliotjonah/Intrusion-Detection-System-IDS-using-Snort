@@ -11,7 +11,7 @@ Intrusion Detection Systems (IDS) are essential for monitoring and analyzing net
 
 ## 💡 Setup & Installation
 ### 🔧 Prerequisites
-- A computer running VirtualBox with at least **8GB RAM and 50GB disk space**.
+- A computer running VirtualBox with at least **8GB RAM and 100GB disk space**.
 - Three virtual machines:  
   - **Ubuntu (Snort IDS System)**  
   - **Metasploitable 2 (Victim Machine)**  
