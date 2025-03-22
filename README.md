@@ -51,6 +51,9 @@ Configure static IP for monitoring interface (`eth1`):
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20041340.png>
 This is the interface where  snort is going to listen on. 
 Also we have to make sure that our other VMs( Kali and Metasploitable 2) should be on the same network.
+
+
+---
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20233401.png>
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20233521.png>
 
@@ -63,14 +66,17 @@ sudo vim /etc/snort/rules/local.rules
 ```
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20224626.png>
 Add the following rules:
+
 - **ICMP Detection Rule (Ping):**  
 ```bash
 alert icmp any any -> any any (msg:"ALERT! ICMP Ping Detected"; sid:100001; rev:1;)
+```
 
-- **Nmap Scan Detection Rule (SYN Scan):**  
+- **Nmap Scan Detection Rule (SYN Scan):** 
 ```bash
 alert tcp any any -> any any (msg:"ALERT! Nmap SYN Scan Detected"; flags:S; sid:100002;)
 ```
+
 - **SSH Authentication Detection Rule:**  
 ```bash
 alert tcp any any -> any 22 (msg:"ALERT! SSH Authentication Attempt Detected"; sid:100003;)
