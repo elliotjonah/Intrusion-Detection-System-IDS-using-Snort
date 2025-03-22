@@ -49,7 +49,8 @@ snort -V
 ### 🔧 Configuring Snort Network Interfaces
 Configure static IP for monitoring interface (`eth1`):  
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20041340.png>
-This is the interface where  snort is going to listen on. Also we have to make sure that our other VMs( Kali and Metasploitable 2) should be on the same network.
+This is the interface where  snort is going to listen on. 
+Also we have to make sure that our other VMs( Kali and Metasploitable 2) should be on the same network.
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20233401.png>
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20233521.png>
 
@@ -65,7 +66,6 @@ Add the following rules:
 - **ICMP Detection Rule (Ping):**  
 ```bash
 alert icmp any any -> any any (msg:"ALERT! ICMP Ping Detected"; sid:100001; rev:1;)
-```
 
 - **Nmap Scan Detection Rule (SYN Scan):**  
 ```bash
@@ -93,7 +93,7 @@ include $RULE_PATH/local.rules
 ```bash
 sudo snort -q -l /var/log/snort -i enp0s8 -A console -c /etc/snort/snort.test
 ```
-<img src = >
+
 
 ---
 
@@ -106,13 +106,13 @@ sudo snort -q -l /var/log/snort -i enp0s8 -A console -c /etc/snort/snort.test
 
 **Attack Attempts from Kali Linux Screenshots:**
 - **ICMP Ping Attempt**
-<img src = > 
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-03%20005022.png> 
   ![Ping Attempt](./images/ping_attempt.png)
 - **Nmap SYN Scan Attempt**
 <img src = >
   ![Nmap Scan Attempt](./images/nmap_scan_attempt.png)
 - **SSH Authentication Attempt**
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-20%20233444.png>
   ![SSH Attempt](./images/ssh_attempt.png)
 
 ---
@@ -129,11 +129,11 @@ cat /var/log/snort/alert
 
 Verify alerts for:
 - **ICMP Ping Detection**
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-21%20000734.png>
 - **Nmap SYN Scan Detection**
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-21%20000757.png>
 - **SSH Brute Force Detection**
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-21%20002040.png>
 
 ---
 
