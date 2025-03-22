@@ -25,11 +25,6 @@ Intrusion Detection Systems (IDS) are essential for monitoring and analyzing net
 | **Metasploitable 2 (Victim)** | Internal Network: SnortLab (eth0) | None                |
 | **Kali Linux (Attacker)**    | Internal Network: SnortLab (eth0) | None                |
 
-**Network Configuration Screenshots:**
-<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20041340.png>
-<img src = >
-<img src = >
-
 ---
 
 ## 🚀 Installing and Configuring Snort (Ubuntu IDS System)
@@ -37,26 +32,26 @@ Intrusion Detection Systems (IDS) are essential for monitoring and analyzing net
 ```bash
 sudo apt-get update
 ```
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20020753.png>
 
 ### 📥 Installing Snort
 ```bash
 sudo apt-get install snort -y
 ```
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20020913.png>
 
 ### 🔍 Verifying Installation
 ```bash
 snort -V
 ```
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-20%20210627.png>
 
 ### 🔧 Configuring Snort Network Interfaces
 Configure static IP for monitoring interface (`eth1`):  
-<img src = >
-Ensure all VMs (Kali and Metasploitable 2) are on the same network.
-<img src = >
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20041340.png>
+This is the interface where  snort is going to listen on. Also we have to make sure that our other VMs( Kali and Metasploitable 2) should be on the same network.
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20233401.png>
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20233521.png>
 
 ---
 
@@ -65,27 +60,32 @@ Create and edit rule file:
 ```bash
 sudo vim /etc/snort/rules/local.rules
 ```
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20224626.png>
 Add the following rules:
 - **ICMP Detection Rule (Ping):**  
 ```bash
 alert icmp any any -> any any (msg:"ALERT! ICMP Ping Detected"; sid:100001; rev:1;)
 ```
-<img src = >
+
 - **Nmap Scan Detection Rule (SYN Scan):**  
 ```bash
 alert tcp any any -> any any (msg:"ALERT! Nmap SYN Scan Detected"; flags:S; sid:100002;)
 ```
-<img src = >
 - **SSH Authentication Detection Rule:**  
 ```bash
 alert tcp any any -> any 22 (msg:"ALERT! SSH Authentication Attempt Detected"; sid:100003;)
 ```
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-03%20002801.png>
 Save the file.
 
 **Snort Rules Configuration Screenshot:**
-<img src = >
-![Snort Rules Configuration](./images/snort_rules_configuration.png)
+Edit the configuration file: sudo vim /etc/snort/snort.test
+Note: By default, snort configuration files are located in snort.conf but a made a copy of it and save it in snort.test 
+
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20221549.png>
+Specify the network you want to monitor
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20222547.png>
+include $RULE_PATH/local.rules
 
 ---
 
