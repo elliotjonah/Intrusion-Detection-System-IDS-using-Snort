@@ -25,8 +25,10 @@ Intrusion Detection Systems (IDS) are essential for monitoring and analyzing net
 | **Metasploitable 2 (Victim)** | Internal Network: SnortLab (eth0) | None                |
 | **Kali Linux (Attacker)**    | Internal Network: SnortLab (eth0) | None                |
 
-**Network Configuration Screenshot:**
-![Network Configuration](./images/network_configuration.png)
+**Network Configuration Screenshots:**
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-02%20041340.png>
+<img src = >
+<img src = >
 
 ---
 
@@ -35,20 +37,26 @@ Intrusion Detection Systems (IDS) are essential for monitoring and analyzing net
 ```bash
 sudo apt-get update
 ```
+<img src = >
 
 ### 📥 Installing Snort
 ```bash
 sudo apt-get install snort -y
 ```
+<img src = >
 
 ### 🔍 Verifying Installation
 ```bash
 snort -V
 ```
+<img src = >
 
 ### 🔧 Configuring Snort Network Interfaces
 Configure static IP for monitoring interface (`eth1`):  
+<img src = >
 Ensure all VMs (Kali and Metasploitable 2) are on the same network.
+<img src = >
+<img src = >
 
 ---
 
@@ -57,15 +65,18 @@ Create and edit rule file:
 ```bash
 sudo vim /etc/snort/rules/local.rules
 ```
+<img src = >
 Add the following rules:
 - **ICMP Detection Rule (Ping):**  
 ```bash
 alert icmp any any -> any any (msg:"ALERT! ICMP Ping Detected"; sid:100001; rev:1;)
 ```
+<img src = >
 - **Nmap Scan Detection Rule (SYN Scan):**  
 ```bash
 alert tcp any any -> any any (msg:"ALERT! Nmap SYN Scan Detected"; flags:S; sid:100002;)
 ```
+<img src = >
 - **SSH Authentication Detection Rule:**  
 ```bash
 alert tcp any any -> any 22 (msg:"ALERT! SSH Authentication Attempt Detected"; sid:100003;)
@@ -73,6 +84,7 @@ alert tcp any any -> any 22 (msg:"ALERT! SSH Authentication Attempt Detected"; s
 Save the file.
 
 **Snort Rules Configuration Screenshot:**
+<img src = >
 ![Snort Rules Configuration](./images/snort_rules_configuration.png)
 
 ---
@@ -81,6 +93,7 @@ Save the file.
 ```bash
 sudo snort -q -l /var/log/snort -i enp0s8 -A console -c /etc/snort/snort.test
 ```
+<img src = >
 
 ---
 
@@ -92,11 +105,14 @@ sudo snort -q -l /var/log/snort -i enp0s8 -A console -c /etc/snort/snort.test
 | **SSH Authentication** | `ssh msfadmin@<Metasploitable_IP>` |
 
 **Attack Attempts from Kali Linux Screenshots:**
-- **ICMP Ping Attempt**  
+- **ICMP Ping Attempt**
+<img src = > 
   ![Ping Attempt](./images/ping_attempt.png)
-- **Nmap SYN Scan Attempt**  
+- **Nmap SYN Scan Attempt**
+<img src = >
   ![Nmap Scan Attempt](./images/nmap_scan_attempt.png)
-- **SSH Authentication Attempt**  
+- **SSH Authentication Attempt**
+<img src = >
   ![SSH Attempt](./images/ssh_attempt.png)
 
 ---
@@ -106,14 +122,18 @@ Check alerts using:
 ```bash
 cat /var/log/snort/alert
 ```
+<img src = >
 
 **Snort Alerts Output Screenshot:**
 ![Snort Alerts](./images/snort_alerts_output.png)
 
 Verify alerts for:
 - **ICMP Ping Detection**
+<img src = >
 - **Nmap SYN Scan Detection**
+<img src = >
 - **SSH Brute Force Detection**
+<img src = >
 
 ---
 
