@@ -138,7 +138,7 @@ Verify alerts for:
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-21%20000734.png>
 - **Nmap SYN Scan Detection**
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-21%20000757.png>
-- **SSH Brute Force Detection**
+- **SSH Authentication Detection**
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-21%20002040.png>
 
 ---
