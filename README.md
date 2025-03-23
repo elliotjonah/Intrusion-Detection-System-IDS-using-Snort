@@ -115,7 +115,7 @@ sudo snort -q -l /var/log/snort -i enp0s8 -A console -c /etc/snort/snort.test
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-03%20005022.png> 
   ![Ping Attempt](./images/ping_attempt.png)
 - **Nmap SYN Scan Attempt**
-<img src = >
+<img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/2f4d843a3b2cbdcc6a0103f7f335760828f23950/Screenshot%202025-03-03%20001511.png>
   ![Nmap Scan Attempt](./images/nmap_scan_attempt.png)
 - **SSH Authentication Attempt**
 <img src = https://github.com/elliotjonah/Intrusion-Detection-System-IDS-using-Snort/blob/36bd925297264e946552129901cec56ab7043d7f/Screenshot%202025-03-20%20233444.png>
