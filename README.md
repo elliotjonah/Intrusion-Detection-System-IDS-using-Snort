@@ -128,10 +128,10 @@ Check alerts using:
 ```bash
 cat /var/log/snort/alert
 ```
-<img src = >
 
-**Snort Alerts Output Screenshot:**
-![Snort Alerts](./images/snort_alerts_output.png)
+
+**Snort Alerts Output Screenshots:**
+
 
 Verify alerts for:
 - **ICMP Ping Detection**
